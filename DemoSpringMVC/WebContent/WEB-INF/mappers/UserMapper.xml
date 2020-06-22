@@ -4,7 +4,7 @@
 
 <mapper namespace="UserMapper">
 	<select id="selectAllUser" resultType="com.training.model.User">
-		SELECT *
-		FROM USER
+		SELECT * 
+		FROM springexample.user
 	</select>
 </mapper>
