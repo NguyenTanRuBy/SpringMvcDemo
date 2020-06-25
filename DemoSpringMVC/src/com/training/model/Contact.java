@@ -8,13 +8,13 @@ public class Contact {
 	private String openTime;
 	private String closeTime;
 
-	public Contact(String phone, String address, String email, String openTime, String endTime) {
+	public Contact(String phone, String address, String email, String openTime, String closeTime) {
 		super();
 		this.phone = phone;
 		this.address = address;
 		this.email = email;
 		this.openTime = openTime;
-		this.closeTime = endTime;
+		this.closeTime = closeTime;
 	}
 
 	public String getPhone() {
