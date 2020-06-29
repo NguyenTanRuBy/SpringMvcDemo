@@ -12,7 +12,27 @@
 <title>Login</title>
 </head>
 <body>
-nguyen minh triet
+	<div class="container">
+		<div class="card" style="width: 400px">
+			<img class="card-img-top" th:src="@{img/logo-organi.png}" alt="Card image">
+			<div class="card-body">
+				<h4 class="card-title">Login</h4>
+				<form th:action="@{/login}" method="POST">
+					<div class="card-text">
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<input type="text" class="form-control" placeholder="Email"
+									name="email">
+							</div>
+							<input type="password" class="form-control" placeholder="Password"
+								name="password">
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary">Sign in</button>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 <!-- jQuery library -->
 <script

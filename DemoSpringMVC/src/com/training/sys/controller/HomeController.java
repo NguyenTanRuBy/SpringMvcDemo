@@ -48,4 +48,9 @@ public class HomeController {
 		return "login";
 	}
 	
+	@RequestMapping(value = "/403")
+	public String accessDenied() {
+		return "403";
+	}
+	
 }

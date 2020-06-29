@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
@@ -15,22 +16,22 @@ import org.thymeleaf.templatemode.TemplateMode;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = { "com.training" })
-public class WebMvcConfig {
+public class WebMvcConfig implements WebMvcConfigurer {
 
 	@Autowired
 	private ApplicationContext applicationContext;
 
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/css/**").addResourceLocations("WEB-INF/views/css/");
-		registry.addResourceHandler("/js/**").addResourceLocations("WEB-INF/views/js/");
-		registry.addResourceHandler("/img/**").addResourceLocations("WEB-INF/views/img/");
+		registry.addResourceHandler("/css/**").addResourceLocations("/WEB-INF/views/css/");
+		registry.addResourceHandler("/js/**").addResourceLocations("/WEB-INF/views/js/");
+		registry.addResourceHandler("/img/**").addResourceLocations("/WEB-INF/views/img/");
 	}
 
 	@Bean
 	public SpringResourceTemplateResolver templateResolver() {
 		SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
 		templateResolver.setApplicationContext(this.applicationContext);
-		templateResolver.setPrefix("WEB-INF/views/");
+		templateResolver.setPrefix("/WEB-INF/views/");
 		templateResolver.setSuffix(".html");
 		templateResolver.setTemplateMode(TemplateMode.HTML);
 		templateResolver.setCacheable(true);

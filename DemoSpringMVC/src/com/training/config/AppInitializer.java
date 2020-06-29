@@ -2,11 +2,13 @@ package com.training.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import com.training.sys.service.MyUserDetailsServiceImpl;
+
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class[] {AppContext.class};
+		return new Class[] {AppContext.class, WebSecurityConfig.class, MyUserDetailsServiceImpl.class};
 	};
 	
 	@Override
