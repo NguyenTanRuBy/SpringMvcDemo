@@ -9,8 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.training.model.Category;
 import com.training.model.Contact;
 import com.training.model.User;
+import com.training.sys.service.CategoryService;
 import com.training.sys.service.UserService;
 
 @Controller
@@ -18,12 +20,17 @@ public class HomeController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private CategoryService categoryService;
 
 	@RequestMapping(value = "/")
 	public String index(Model model) {
 
 		Contact contact = new Contact("0332654897", "cong hoa", "cyberlogitech@gmail.com", "10 AM", "10 PM");
-		model.addAttribute(contact);
+		List<Category> categories = categoryService.getAllCategory();
+		model.addAttribute("categories",categories);
+		model.addAttribute("contact", contact);
 		return "index";
 	}
 

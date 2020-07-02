@@ -3,11 +3,14 @@ package com.training.sys.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.training.model.MyUserDetails;
@@ -19,12 +22,12 @@ public class MyUserDetailsServiceImpl implements UserDetailsService {
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 		if(!"admin".equalsIgnoreCase(email)) throw new UsernameNotFoundException("User name not found");  
-        String password = "admin";  
+        String password = "$2y$12$aoAmKFESBXg23t.pcs4eSOmhp2TOlhM4A6BJDRfCIT6m0bI5Wc71m"; // admin  
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();  
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority("MEMBER"); 
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority("MEMBER");
         authorities.add(authority);
-        UserDetails userDetail = new MyUserDetails(email, "{noop}" + password, authorities); 
-        System.out.println(password);
+        UserDetails userDetail = new MyUserDetails(email, password, authorities); 
+        System.out.println( "pass:" + password);
         return userDetail;
 	}
 }

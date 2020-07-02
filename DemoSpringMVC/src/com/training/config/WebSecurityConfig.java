@@ -17,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	//@Qualifier("MyUserDetailsServiceImpl")
+	@Qualifier("MyUserDetailsServiceImpl")
 	UserDetailsService MyUserDetailsServiceImpl;
 
     @Bean
@@ -27,7 +27,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    	auth.inMemoryAuthentication().withUser("admin").password("{noop}admin").roles("MEMBER");
         auth.userDetailsService(MyUserDetailsServiceImpl).passwordEncoder(passwordEncoder());
+        
     }
     
 	@Override
@@ -36,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 			.authorizeRequests()
 				.antMatchers("/login").permitAll()
-				.antMatchers("/").hasRole("MEMBER")
+				.antMatchers("/").hasAuthority("MEMBER")
 				.antMatchers("/admin").hasRole("ADMIN")
 				.and()
 			.formLogin()
@@ -44,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.usernameParameter("email")
 				.passwordParameter("password")
 				.defaultSuccessUrl("/")
-				.failureUrl("/login?error")
+				.failureUrl("/login?error=true")
 				.and()
 			.exceptionHandling()
 				.accessDeniedPage("/403");
