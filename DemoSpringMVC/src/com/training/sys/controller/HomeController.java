@@ -29,6 +29,9 @@ public class HomeController {
 
 		Contact contact = new Contact("0332654897", "cong hoa", "cyberlogitech@gmail.com", "10 AM", "10 PM");
 		List<Category> categories = categoryService.getAllCategory();
+		for (Category category : categories) {
+			System.out.println("cate: " + category.getName());
+		}
 		model.addAttribute("categories",categories);
 		model.addAttribute("contact", contact);
 		return "index";

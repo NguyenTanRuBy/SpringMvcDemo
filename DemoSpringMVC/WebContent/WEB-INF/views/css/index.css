@@ -34,5 +34,13 @@
 	text-align: center;
 }
 
+.img-carousel {
+	height: 250px;
+	width: 900px;
+}
+
+#carousel {
+  overflow: hidden;
+}
 
 
