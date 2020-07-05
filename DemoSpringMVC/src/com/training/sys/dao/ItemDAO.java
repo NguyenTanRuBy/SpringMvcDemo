@@ -6,5 +6,6 @@ import com.training.model.Item;
 
 public interface ItemDAO {
 	public List<Item> selectAllItem();
+	public List<Item> getItemByCategory(String name);
 
 }

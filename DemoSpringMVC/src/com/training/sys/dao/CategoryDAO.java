@@ -7,4 +7,5 @@ import com.training.model.Category;
 public interface CategoryDAO {
 
 	public List<Category> getAllCategory();
+
 }

@@ -9,11 +9,11 @@ import com.training.model.Category;
 import com.training.sys.dao.CategoryDAO;
 
 @Service
-public class CategoryServicesImpl implements CategoryService{
+public class CategoryServicesImpl implements CategoryService {
 
 	@Autowired
 	CategoryDAO categoryDAO;
-	
+
 	@Override
 	public List<Category> getAllCategory() {
 		// TODO Auto-generated method stub

@@ -13,10 +13,16 @@ public class ItemDAOImpl implements ItemDAO {
 
 	@Autowired
 	private SqlSession sqlSession;
-	
+
 	@Override
 	public List<Item> selectAllItem() {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("ItemMapper.selectAllItem");
+	}
+
+	@Override
+	public List<Item> getItemByCategory(String name) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("ItemMapper.getItemByCategory", name);
 	}
 }

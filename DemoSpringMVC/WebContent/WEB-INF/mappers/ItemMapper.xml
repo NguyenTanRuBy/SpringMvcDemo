@@ -5,7 +5,13 @@
 <mapper namespace="ItemMapper">
 	<select id="selectAllItem" resultType="com.training.model.Item">
 		SELECT * 
-		FROM store.item
+		FROM item
 		ORDER BY ID
+	</select>
+	<select id="getItemByCategory" parameterType="String" resultType="com.training.model.Item">
+		SELECT IT.*
+		FROM ITEM IT JOIN CATEGORY_ITEM CT_IT ON IT.ID = CT_IT.ITEM_ID
+						JOIN CATEGORY CT ON CT.ID = CT_IT.CATEGORY_ID
+		WHERE CT.NAME = #{NAME}
 	</select>
 </mapper>

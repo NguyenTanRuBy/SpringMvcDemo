@@ -19,4 +19,5 @@ public class CategoryDAOImpl implements CategoryDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("CategoryMapper.selectAllCategory");
 	}
+	
 }

@@ -38,6 +38,11 @@ public class Item {
 	public void setDiscountPercent(int discountPercent) {
 		this.discountPercent = discountPercent;
 	}
+
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", name=" + name + ", price=" + price + ", discountPercent=" + discountPercent + "]";
+	}
 	
-	
+
 }

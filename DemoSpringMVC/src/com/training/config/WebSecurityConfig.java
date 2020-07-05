@@ -37,7 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		// TODO Auto-generated method stub
 		http
 			.authorizeRequests()
-				.antMatchers("/login").permitAll()
+				.antMatchers("/login", "/item/*").permitAll()
 				.antMatchers("/").hasAuthority("MEMBER")
 				.antMatchers("/admin").hasRole("ADMIN")
 				.and()

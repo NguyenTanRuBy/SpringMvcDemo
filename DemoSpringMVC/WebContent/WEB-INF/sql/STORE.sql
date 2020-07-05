@@ -43,7 +43,7 @@ VALUES (N'CÀ CHUA', '20000', '10'),
 		(N'CÂY TÙNG', '800000', '10');
 INSERT INTO CATEGORY_ITEM (ITEM_ID, CATEGORY_ID)
 VALUES (1,1), 
-		(2,2), 
+		(2,1), 
         (3,1), 
         (4,1),
         (5,2),
