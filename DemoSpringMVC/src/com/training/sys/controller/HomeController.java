@@ -45,4 +45,11 @@ public class HomeController {
 		return "403";
 	}
 	
+	@RequestMapping(value = "/item")
+	public String itemPage() {
+		return "item";
+	}
+	
+	
+	
 }

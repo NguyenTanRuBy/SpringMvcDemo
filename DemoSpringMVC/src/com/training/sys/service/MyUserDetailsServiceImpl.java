@@ -21,7 +21,7 @@ public class MyUserDetailsServiceImpl implements UserDetailsService {
 		if(!"admin".equalsIgnoreCase(email)) throw new UsernameNotFoundException("User name not found");  
         String password = "$2y$12$aoAmKFESBXg23t.pcs4eSOmhp2TOlhM4A6BJDRfCIT6m0bI5Wc71m"; // admin  
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();  
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority("MEMBER");
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ADMIN");
         authorities.add(authority);
         UserDetails userDetail = new MyUserDetails(email, password, authorities); 
         System.out.println( "pass:" + password);
