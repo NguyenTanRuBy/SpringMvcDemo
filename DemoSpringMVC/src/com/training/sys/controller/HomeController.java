@@ -28,10 +28,12 @@ public class HomeController {
 		Contact contact = new Contact("0332654897", "cong hoa", "cyberlogitech@gmail.com", "10 AM", "10 PM");
 		List<Category> categories = categoryService.getAllCategory();
 		List<Item> items = itemService.selectAllItem();
+		List<Item> itemTopSale = itemService.getTopSale();
 		
 		model.addAttribute("items", items);
 		model.addAttribute("categories", categories);
 		model.addAttribute("contact", contact);
+		model.addAttribute("itemTopSale", itemTopSale);
 		return "index";
 	}
 	

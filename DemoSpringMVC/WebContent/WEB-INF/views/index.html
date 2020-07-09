@@ -98,11 +98,12 @@
 					<p>no items available</p>
 				</div>
 				<div th:each="category: ${categories}" class="categories">
-					<button class="btn btn-success" th:text="${category.name}" th:id="${category.name}" th:onclick="'categoryClick(this);'"></button>
+					<button class="btn btn-success" th:text="${category.name}"
+						th:id="${category.name}" th:onclick="'categoryClick(this);'"></button>
 				</div>
 			</div>
 
-			<div id="carousel" class="carousel slide col-10" data-ride="carousel" style="border-radius: 5px;">
+			<div id="carousel" class="carousel slide col-10" data-ride="carousel">
 
 				<!-- Indicators -->
 				<ul class="carousel-indicators" style="z-index: 1">
@@ -123,8 +124,8 @@
 							style="width: 100%; height: 100%;" alt="b">
 					</div>
 					<div class="carousel-item" style="width: inherit; height: inherit;">
-						<img th:src="@{img/organi.jpg}"
-							style="width: 100%; height: 100%;" alt="c">
+						<img th:src="@{img/organi.jpg}" style="width: 100%; height: 100%;"
+							alt="c">
 					</div>
 				</div>
 
@@ -138,268 +139,224 @@
 			</div>
 		</div>
 
-		<div>
-			<div class="jumbotron jumbotron-fluid">
-				<div class="">
-					<h1>TOP SALE</h1>
-					<div class="card-deck">
-						<div class="card mb-4">
-							<img class="card-img-top" th:src="@{img/nam_huong.jpg}"
-								alt="Card image">
-							<div class="card-body">
-								<h4 class="card-title">Mushrooms</h4>
-								<p class="card-text">Description</p>
-								<a href="#" class="btn btn-warning">Detail</a>
+
+
+
+		<div class="jumbotron jumbotron-fluid">
+			<div class="">
+				<h1>TOP SALE</h1>
+				<div id="carousel-top-sale" class="carousel slide"
+					data-ride="carousel">
+
+					<!-- Indicators -->
+					<ul class="carousel-indicators" style="z-index: 1">
+						<li data-target="#carousel-top-sale" data-slide-to="0"
+							class="active"></li>
+						<li data-target="#carousel-top-sale" data-slide-to="1"></li>
+						<li data-target="#carousel-top-sale" data-slide-to="2"></li>
+					</ul>
+
+					<!-- The slideshow -->
+					<div class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner" style="height: 300px;">
+							<div class="carousel-item active"
+								style="width: inherit; height: inherit;">
+								<div class="row">
+									<div class="col-sm">
+										<img class="d-block w-100" style="width: 100%; height: 100%;"
+											th:src="${itemTopSale[0].getImg()}" alt="1 slide">
+									</div>
+									<div class="col">
+										<img class="d-block w-100" style="width: 100%; height: 100%;"
+											th:src="${itemTopSale[1].getImg()}" alt="2 slide">
+									</div>
+									<div class="col">
+										<img class="d-block w-100" style="width: 100%; height: 100%;"
+											th:src="${itemTopSale[2].getImg()}" alt="3 slide">
+									</div>
+								</div>
 							</div>
-						</div>
-						<div class="card mb-4">
-							<img class="card-img-top" th:src="@{img/nam_huong.jpg}"
-								alt="Card image">
-							<div class="card-body">
-								<h4 class="card-title">Mushrooms</h4>
-								<p class="card-text">Description</p>
-								<a href="#" class="btn btn-warning">Detail</a>
+							
+							<div class="carousel-item"
+								style="width: inherit; height: inherit;">
+								<div class="row">
+									<div class="col-sm">
+										<img class="d-block w-100" style="width: 100%; height: 100%;"
+											th:src="${itemTopSale[3].getImg()}" alt="1 slide">
+									</div>
+									<div class="col">
+										<img class="d-block w-100" style="width: 100%; height: 100%;"
+											th:src="${itemTopSale[4].getImg()}" alt="2 slide">
+									</div>
+									<div class="col">
+										<img class="d-block w-100" style="width: 100%; height: 100%;"
+											th:src="${itemTopSale[5].getImg()}" alt="3 slide">
+									</div>
+								</div>
 							</div>
-						</div>
-						<div class="w-100 d-none d-sm-block d-md-none">
-							<!-- wrap every 2 on sm-->
-						</div>
-						<div class="card mb-4">
-							<img class="card-img-top" th:src="@{img/nam_huong.jpg}"
-								alt="Card image">
-							<div class="card-body">
-								<h4 class="card-title">Mushrooms</h4>
-								<p class="card-text">Description</p>
-								<a href="#" class="btn btn-warning">Detail</a>
-							</div>
-						</div>
-						<div class="w-100 d-none d-md-block d-lg-none">
-							<!-- wrap every 3 on md-->
-						</div>
-						<div class="card mb-4">
-							<img class="card-img-top" th:src="@{img/nam_huong.jpg}"
-								alt="Card image">
-							<div class="card-body">
-								<h4 class="card-title">Mushrooms</h4>
-								<p class="card-text">Description</p>
-								<a href="#" class="btn btn-warning">Detail</a>
-							</div>
-						</div>
-						<div class="w-100 d-none d-sm-block d-md-none">
-							<!-- wrap every 2 on sm-->
-						</div>
-						<div class="w-100 d-none d-lg-block d-xl-none">
-							<!-- wrap every 4 on lg-->
-						</div>
-						<div class="card mb-4">
-							<img class="card-img-top" th:src="@{img/nam_huong.jpg}"
-								alt="Card image">
-							<div class="card-body">
-								<h4 class="card-title">Mushrooms</h4>
-								<p class="card-text">Description</p>
-								<a href="#" class="btn btn-warning">Detail</a>
-							</div>
-						</div>
-						<div class="w-100 d-none d-xl-block">
-							<!-- wrap every 5 on xl-->
-						</div>
-						<div class="card mb-4">
-							<img class="card-img-top" th:src="@{img/nam_huong.jpg}"
-								alt="Card image">
-							<div class="card-body">
-								<h4 class="card-title">Mushrooms</h4>
-								<p class="card-text">Description</p>
-								<a href="#" class="btn btn-warning">Detail</a>
-							</div>
-						</div>
-						<div class="w-100 d-none d-sm-block d-md-none">
-							<!-- wrap every 2 on sm-->
-						</div>
-						<div class="w-100 d-none d-md-block d-lg-none">
-							<!-- wrap every 3 on md-->
-						</div>
-						<div class="card mb-4">
-							<img class="card-img-top" th:src="@{img/nam_huong.jpg}"
-								alt="Card image">
-							<div class="card-body">
-								<h4 class="card-title">Mushrooms</h4>
-								<p class="card-text">Description</p>
-								<a href="#" class="btn btn-warning">Detail</a>
-							</div>
-						</div>
-						<div class="card mb-4">
-							<img class="card-img-top" th:src="@{img/nam_huong.jpg}"
-								alt="Card image">
-							<div class="card-body">
-								<h4 class="card-title">Mushrooms</h4>
-								<p class="card-text">Description</p>
-								<a href="#" class="btn btn-warning">Detail</a>
-							</div>
-						</div>
-						<div class="w-100 d-none d-sm-block d-md-none">
-							<!-- wrap every 2 on sm-->
-						</div>
-						<div class="w-100 d-none d-lg-block d-xl-none">
-							<!-- wrap every 4 on lg-->
-						</div>
-						<div class="card mb-4">
-							<img class="card-img-top" th:src="@{img/nam_huong.jpg}"
-								alt="Card image">
-							<div class="card-body">
-								<h4 class="card-title">Mushrooms</h4>
-								<p class="card-text">Description</p>
-								<a href="#" class="btn btn-warning">Detail</a>
-							</div>
-						</div>
-						<div class="w-100 d-none d-md-block d-lg-none">
-							<!-- wrap every 3 on md-->
-						</div>
-						<div class="card mb-4">
-							<img class="card-img-top" th:src="@{img/nam_huong.jpg}"
-								alt="Card image">
-							<div class="card-body">
-								<h4 class="card-title">Mushrooms</h4>
-								<p class="card-text">Description</p>
-								<a href="#" class="btn btn-warning">Detail</a>
+							
+							<div class="carousel-item"
+								style="width: inherit; height: inherit;">
+								<div class="row">
+									<div class="col-sm">
+										<img class="d-block w-100" style="width: 100%; height: 100%;"
+											th:src="${itemTopSale[6].getImg()}" alt="1 slide">
+									</div>
+									<div class="col">
+										<img class="d-block w-100" style="width: 100%; height: 100%;"
+											th:src="${itemTopSale[7].getImg()}" alt="2 slide">
+									</div>
+									<div class="col">
+										<img class="d-block w-100" style="width: 100%; height: 100%;"
+											th:src="${itemTopSale[8].getImg()}" alt="3 slide">
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
+
+					<!-- Left and right controls -->
+					<a class="carousel-control-prev" href="#carousel-top-sale"
+						data-slide="prev"> <span class="carousel-control-prev-icon"></span>
+					</a> <a class="carousel-control-next" href="#carousel-top-sale"
+						data-slide="next"> <span class="carousel-control-next-icon"></span>
+					</a>
 
 				</div>
 			</div>
+		</div>
 
-			<div>
-				<div class="jumbotron jumbotron-fluid">
-					<div class="">
-						<h1>TOP HOT PRODUCT</h1>
-						<div class="card-deck">
-							<div class="card mb-4">
-								<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
-									alt="Card image">
-								<div class="card-body">
-									<h4 class="card-title">Ornamental Chili</h4>
-									<p class="card-text">Description</p>
-									<a href="#" class="btn btn-success">Detail</a>
-								</div>
-							</div>
-							<div class="card mb-4">
-								<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
-									alt="Card image">
-								<div class="card-body">
-									<h4 class="card-title">Ornamental Chili</h4>
-									<p class="card-text">Description</p>
-									<a href="#" class="btn btn-success">Detail</a>
-								</div>
-							</div>
-							<div class="w-100 d-none d-sm-block d-md-none">
-								<!-- wrap every 2 on sm-->
-							</div>
-							<div class="card mb-4">
-								<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
-									alt="Card image">
-								<div class="card-body">
-									<h4 class="card-title">Ornamental Chili</h4>
-									<p class="card-text">Description</p>
-									<a href="#" class="btn btn-success">Detail</a>
-								</div>
-							</div>
-							<div class="w-100 d-none d-md-block d-lg-none">
-								<!-- wrap every 3 on md-->
-							</div>
-							<div class="card mb-4">
-								<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
-									alt="Card image">
-								<div class="card-body">
-									<h4 class="card-title">Ornamental Chili</h4>
-									<p class="card-text">Description</p>
-									<a href="#" class="btn btn-success">Detail</a>
-								</div>
-							</div>
-							<div class="w-100 d-none d-sm-block d-md-none">
-								<!-- wrap every 2 on sm-->
-							</div>
-							<div class="w-100 d-none d-lg-block d-xl-none">
-								<!-- wrap every 4 on lg-->
-							</div>
-							<div class="card mb-4">
-								<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
-									alt="Card image">
-								<div class="card-body">
-									<h4 class="card-title">Ornamental Chili</h4>
-									<p class="card-text">Description</p>
-									<a href="#" class="btn btn-success">Detail</a>
-								</div>
-							</div>
-							<div class="w-100 d-none d-xl-block">
-								<!-- wrap every 5 on xl-->
-							</div>
-							<div class="card mb-4">
-								<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
-									alt="Card image">
-								<div class="card-body">
-									<h4 class="card-title">Ornamental Chili</h4>
-									<p class="card-text">Description</p>
-									<a href="#" class="btn btn-success">Detail</a>
-								</div>
-							</div>
-							<div class="w-100 d-none d-sm-block d-md-none">
-								<!-- wrap every 2 on sm-->
-							</div>
-							<div class="w-100 d-none d-md-block d-lg-none">
-								<!-- wrap every 3 on md-->
-							</div>
-							<div class="card mb-4">
-								<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
-									alt="Card image">
-								<div class="card-body">
-									<h4 class="card-title">Ornamental Chili</h4>
-									<p class="card-text">Description</p>
-									<a href="#" class="btn btn-success">Detail</a>
-								</div>
-							</div>
-							<div class="card mb-4">
-								<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
-									alt="Card image">
-								<div class="card-body">
-									<h4 class="card-title">Ornamental Chili</h4>
-									<p class="card-text">Description</p>
-									<a href="#" class="btn btn-success">Detail</a>
-								</div>
-							</div>
-							<div class="w-100 d-none d-sm-block d-md-none">
-								<!-- wrap every 2 on sm-->
-							</div>
-							<div class="w-100 d-none d-lg-block d-xl-none">
-								<!-- wrap every 4 on lg-->
-							</div>
-							<div class="card mb-4">
-								<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
-									alt="Card image">
-								<div class="card-body">
-									<h4 class="card-title">Ornamental Chili</h4>
-									<p class="card-text">Description</p>
-									<a href="#" class="btn btn-success">Detail</a>
-								</div>
-							</div>
-							<div class="w-100 d-none d-md-block d-lg-none">
-								<!-- wrap every 3 on md-->
-							</div>
-							<div class="card mb-4">
-								<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
-									alt="Card image">
-								<div class="card-body">
-									<h4 class="card-title">Ornamental Chili</h4>
-									<p class="card-text">Description</p>
-									<a href="#" class="btn btn-success">Detail</a>
-								</div>
-							</div>
+		<div class="jumbotron jumbotron-fluid">
+			<div class="">
+				<h1>TOP HOT PRODUCT</h1>
+				<div class="card-deck">
+					<div class="card mb-4">
+						<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
+							alt="Card image">
+						<div class="card-body">
+							<h4 class="card-title">Ornamental Chili</h4>
+							<p class="card-text">Description</p>
+							<a href="#" class="btn btn-success">Detail</a>
+						</div>
+					</div>
+					<div class="card mb-4">
+						<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
+							alt="Card image">
+						<div class="card-body">
+							<h4 class="card-title">Ornamental Chili</h4>
+							<p class="card-text">Description</p>
+							<a href="#" class="btn btn-success">Detail</a>
+						</div>
+					</div>
+					<div class="w-100 d-none d-sm-block d-md-none">
+						<!-- wrap every 2 on sm-->
+					</div>
+					<div class="card mb-4">
+						<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
+							alt="Card image">
+						<div class="card-body">
+							<h4 class="card-title">Ornamental Chili</h4>
+							<p class="card-text">Description</p>
+							<a href="#" class="btn btn-success">Detail</a>
+						</div>
+					</div>
+					<div class="w-100 d-none d-md-block d-lg-none">
+						<!-- wrap every 3 on md-->
+					</div>
+					<div class="card mb-4">
+						<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
+							alt="Card image">
+						<div class="card-body">
+							<h4 class="card-title">Ornamental Chili</h4>
+							<p class="card-text">Description</p>
+							<a href="#" class="btn btn-success">Detail</a>
+						</div>
+					</div>
+					<div class="w-100 d-none d-sm-block d-md-none">
+						<!-- wrap every 2 on sm-->
+					</div>
+					<div class="w-100 d-none d-lg-block d-xl-none">
+						<!-- wrap every 4 on lg-->
+					</div>
+					<div class="card mb-4">
+						<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
+							alt="Card image">
+						<div class="card-body">
+							<h4 class="card-title">Ornamental Chili</h4>
+							<p class="card-text">Description</p>
+							<a href="#" class="btn btn-success">Detail</a>
+						</div>
+					</div>
+					<div class="w-100 d-none d-xl-block">
+						<!-- wrap every 5 on xl-->
+					</div>
+					<div class="card mb-4">
+						<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
+							alt="Card image">
+						<div class="card-body">
+							<h4 class="card-title">Ornamental Chili</h4>
+							<p class="card-text">Description</p>
+							<a href="#" class="btn btn-success">Detail</a>
+						</div>
+					</div>
+					<div class="w-100 d-none d-sm-block d-md-none">
+						<!-- wrap every 2 on sm-->
+					</div>
+					<div class="w-100 d-none d-md-block d-lg-none">
+						<!-- wrap every 3 on md-->
+					</div>
+					<div class="card mb-4">
+						<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
+							alt="Card image">
+						<div class="card-body">
+							<h4 class="card-title">Ornamental Chili</h4>
+							<p class="card-text">Description</p>
+							<a href="#" class="btn btn-success">Detail</a>
+						</div>
+					</div>
+					<div class="card mb-4">
+						<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
+							alt="Card image">
+						<div class="card-body">
+							<h4 class="card-title">Ornamental Chili</h4>
+							<p class="card-text">Description</p>
+							<a href="#" class="btn btn-success">Detail</a>
+						</div>
+					</div>
+					<div class="w-100 d-none d-sm-block d-md-none">
+						<!-- wrap every 2 on sm-->
+					</div>
+					<div class="w-100 d-none d-lg-block d-xl-none">
+						<!-- wrap every 4 on lg-->
+					</div>
+					<div class="card mb-4">
+						<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
+							alt="Card image">
+						<div class="card-body">
+							<h4 class="card-title">Ornamental Chili</h4>
+							<p class="card-text">Description</p>
+							<a href="#" class="btn btn-success">Detail</a>
+						</div>
+					</div>
+					<div class="w-100 d-none d-md-block d-lg-none">
+						<!-- wrap every 3 on md-->
+					</div>
+					<div class="card mb-4">
+						<img class="card-img-top" th:src="@{img/ot_kieng.jpg}"
+							alt="Card image">
+						<div class="card-body">
+							<h4 class="card-title">Ornamental Chili</h4>
+							<p class="card-text">Description</p>
+							<a href="#" class="btn btn-success">Detail</a>
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>
+
+	<div></div>
+
 	</div>
 </body>
 <!-- jQuery library -->
@@ -420,30 +377,6 @@
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 
+<!-- my script -->
 <script type="text/javascript" th:src="@{js/index.js}"></script>
-
 </html>
-
-<!-- 		<div class="d-flex" style="margin-top: 20px">
-			<div class="flex-fill">
-				<span class="material-icons"> settings_phone </span>
-				<p>phone</p>
-				<p th:text=${contact.phone}></p>
-			</div>
-			<div class="flex-fill">
-				<span class="material-icons"> where_to_vote </span>
-				<p>address</p>
-				<p th:text=${contact.address}></p>
-			</div>
-			<div class="flex-fill">
-				<span class="material-icons"> query_builder </span>
-				<p>open time</p>
-				<span th:text="${contact.openTime}"></span> -> <span
-					th:text="${contact.closeTime}"> </span>
-			</div>
-			<div class="flex-fill">
-				<span class="material-icons"> email </span>
-				<p>email</p>
-				<p th:text=${contact.email}></p>
-			</div>
-		</div> -->

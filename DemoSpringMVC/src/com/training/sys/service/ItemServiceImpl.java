@@ -25,4 +25,16 @@ public class ItemServiceImpl implements ItemService {
 		// TODO Auto-generated method stub
 		return itemDAO.getItemByCategory(name);
 	}
+	
+	@Override
+	public Item getItemById(int id) {
+		// TODO Auto-generated method stub
+		return itemDAO.getItemById(id);
+	}
+	
+	@Override
+	public List<Item> getTopSale() {
+		// TODO Auto-generated method stub
+		return itemDAO.getTopSale();
+	}
 }

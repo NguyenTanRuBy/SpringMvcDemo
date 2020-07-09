@@ -5,13 +5,10 @@ public class Item {
 	private String name;
 	private double price;
 	private int discountPercent;
+	private String img;
 	
-	public Item(int id, String name, double price, int discountPercent) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.price = price;
-		this.discountPercent = discountPercent;
+	public Item() {
+		// TODO Auto-generated constructor stub
 	}
 	
 	public int getId() {
@@ -38,6 +35,14 @@ public class Item {
 	public void setDiscountPercent(int discountPercent) {
 		this.discountPercent = discountPercent;
 	}
+	
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
+	
 
 	@Override
 	public String toString() {

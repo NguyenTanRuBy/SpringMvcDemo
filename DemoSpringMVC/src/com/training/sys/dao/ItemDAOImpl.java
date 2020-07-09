@@ -25,4 +25,16 @@ public class ItemDAOImpl implements ItemDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("ItemMapper.getItemByCategory", name);
 	}
+
+	@Override
+	public Item getItemById(int id) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("ItemMapper.getItemById", id);
+	}
+
+	@Override
+	public List<Item> getTopSale() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("ItemMapper.getTopSale");
+	}
 }

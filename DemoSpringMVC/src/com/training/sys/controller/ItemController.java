@@ -31,4 +31,16 @@ public class ItemController {
 	public List<Item> getItemByCategory(@RequestParam("name") String name) {
 		return itemService.getItemByCategory(name);
 	}
+	
+	@RequestMapping(value = "/getItemById", method = RequestMethod.GET)
+	@ResponseBody
+	public Item getItemById(@RequestParam("id") String id) {
+		return itemService.getItemById(Integer.parseInt(id));
+	}
+	
+	@RequestMapping(value = "/getTopSale", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Item> getTopSale() {
+		return itemService.getTopSale();
+	}	
 }
