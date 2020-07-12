@@ -22,7 +22,7 @@
 		WHERE ID = #{ID}
 	</select>
 
-	<select id="getTopSale" resultType="com.training.model.Item">
+	<select id="getTopSale" resultType="com.training.model.ItemTopSale">
 	SELECT IT.ID, IT.NAME, IT.IMG, TS.AMOUNT
 	FROM ITEM IT JOIN TOP_SALE TS
 	ON IT.ID = TS.ITEM_ID

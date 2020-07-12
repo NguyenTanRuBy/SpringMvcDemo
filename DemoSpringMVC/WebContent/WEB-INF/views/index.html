@@ -93,7 +93,7 @@
 				</div> -->
 
 		<div class="row">
-			<div class="col-2">
+			<div class="col-2 sticky">
 				<div th:if="${categories.empty}">
 					<p>no items available</p>
 				</div>
@@ -102,7 +102,7 @@
 						th:id="${category.name}" th:onclick="'categoryClick(this);'"></button>
 				</div>
 			</div>
-
+			<div class ="col-2"></div>
 			<div id="carousel" class="carousel slide col-10" data-ride="carousel">
 
 				<!-- Indicators -->
@@ -142,91 +142,125 @@
 
 
 
-		<div class="jumbotron jumbotron-fluid">
-			<div class="">
-				<h1>TOP SALE</h1>
-				<div id="carousel-top-sale" class="carousel slide"
-					data-ride="carousel">
+		<div class="" style="margin-top: 20px;">
+			<h1>TOP SALE</h1>
+			<div id="carousel-top-sale" class="carousel slide"
+				data-ride="carousel">
 
-					<!-- Indicators -->
-					<ul class="carousel-indicators" style="z-index: 1">
-						<li data-target="#carousel-top-sale" data-slide-to="0"
-							class="active"></li>
-						<li data-target="#carousel-top-sale" data-slide-to="1"></li>
-						<li data-target="#carousel-top-sale" data-slide-to="2"></li>
-					</ul>
+				<!-- Indicators -->
+				<ul class="carousel-indicators" style="z-index: 1">
+					<li data-target="#carousel-top-sale" data-slide-to="0"
+						class="active"></li>
+					<li data-target="#carousel-top-sale" data-slide-to="1"></li>
+					<li data-target="#carousel-top-sale" data-slide-to="2"></li>
+				</ul>
 
-					<!-- The slideshow -->
-					<div class="carousel slide" data-ride="carousel">
-						<div class="carousel-inner" style="height: 300px;">
-							<div class="carousel-item active"
-								style="width: inherit; height: inherit;">
-								<div class="row">
-									<div class="col-sm">
-										<img class="d-block w-100" style="width: 100%; height: 100%;"
-											th:src="${itemTopSale[0].getImg()}" alt="1 slide">
+				<!-- The slideshow -->
+				<div class="carousel slide" data-ride="carousel">
+					<div class="carousel-inner" style="height: 350px;">
+						<div class="carousel-item active"
+							style="width: inherit; height: inherit;">
+							<div class="row">
+								<div class="col">
+									<img class="d-block w-100 h-100"
+										style="width: 100%; height: 100%;"
+										th:src="${itemTopSale[0].getImg()}" alt="1 slide">
+									<div class="text-block">
+										<h3 th:text="${itemTopSale[0].getName()}"></h3>
+										<p th:text="'Sold: ' + ${itemTopSale[0].getAmount()}"></p>
 									</div>
-									<div class="col">
-										<img class="d-block w-100" style="width: 100%; height: 100%;"
-											th:src="${itemTopSale[1].getImg()}" alt="2 slide">
+								</div>
+								<div class="col">
+									<img class="d-block w-100" style="width: 100%; height: 100%;"
+										th:src="${itemTopSale[1].getImg()}" alt="2 slide">
+									<div class="text-block">
+										<h3 th:text="${itemTopSale[1].getName()}"></h3>
+										<p th:text="'Sold: ' + ${itemTopSale[1].getAmount()}"></p>
 									</div>
-									<div class="col">
-										<img class="d-block w-100" style="width: 100%; height: 100%;"
-											th:src="${itemTopSale[2].getImg()}" alt="3 slide">
+								</div>
+								<div class="col">
+									<img class="d-block w-100" style="width: 100%; height: 100%;"
+										th:src="${itemTopSale[2].getImg()}" alt="3 slide">
+									<div class="text-block">
+										<h3 th:text="${itemTopSale[2].getName()}"></h3>
+										<p th:text="'Sold: ' + ${itemTopSale[2].getAmount()}"></p>
 									</div>
 								</div>
 							</div>
-							
-							<div class="carousel-item"
-								style="width: inherit; height: inherit;">
-								<div class="row">
-									<div class="col-sm">
-										<img class="d-block w-100" style="width: 100%; height: 100%;"
-											th:src="${itemTopSale[3].getImg()}" alt="1 slide">
+						</div>
+
+						<div class="carousel-item"
+							style="width: inherit; height: inherit;">
+							<div class="row">
+								<div class="col">
+									<img class="d-block w-100" style="width: 100%; height: 100%;"
+										th:src="${itemTopSale[3].getImg()}" alt="1 slide">
+									<div class="text-block">
+										<h3 th:text="${itemTopSale[3].getName()}"></h3>
+										<p th:text="'Sold: ' + ${itemTopSale[3].getAmount()}"></p>
 									</div>
-									<div class="col">
-										<img class="d-block w-100" style="width: 100%; height: 100%;"
-											th:src="${itemTopSale[4].getImg()}" alt="2 slide">
+								</div>
+								<div class="col">
+									<img class="d-block w-100" style="width: 100%; height: 100%;"
+										th:src="${itemTopSale[4].getImg()}" alt="1 slide">
+									<div class="text-block">
+										<h3 th:text="${itemTopSale[4].getName()}"></h3>
+										<p th:text="'Sold: ' + ${itemTopSale[4].getAmount()}"></p>
 									</div>
-									<div class="col">
-										<img class="d-block w-100" style="width: 100%; height: 100%;"
-											th:src="${itemTopSale[5].getImg()}" alt="3 slide">
+								</div>
+								<div class="col">
+									<img class="d-block w-100" style="width: 100%; height: 100%;"
+										th:src="${itemTopSale[5].getImg()}" alt="1 slide">
+									<div class="text-block">
+										<h3 th:text="${itemTopSale[5].getName()}"></h3>
+										<p th:text="'Sold: ' + ${itemTopSale[5].getAmount()}"></p>
 									</div>
 								</div>
 							</div>
-							
-							<div class="carousel-item"
-								style="width: inherit; height: inherit;">
-								<div class="row">
-									<div class="col-sm">
-										<img class="d-block w-100" style="width: 100%; height: 100%;"
-											th:src="${itemTopSale[6].getImg()}" alt="1 slide">
+						</div>
+
+						<div class="carousel-item"
+							style="width: inherit; height: inherit;">
+							<div class="row">
+								<div class="col">
+									<img class="d-block w-100" style="width: 100%; height: 100%;"
+										th:src="${itemTopSale[6].getImg()}" alt="1 slide">
+									<div class="text-block">
+										<h3 th:text="${itemTopSale[6].getName()}"></h3>
+										<p th:text="'Sold: ' + ${itemTopSale[6].getAmount()}"></p>
 									</div>
-									<div class="col">
-										<img class="d-block w-100" style="width: 100%; height: 100%;"
-											th:src="${itemTopSale[7].getImg()}" alt="2 slide">
+								</div>
+								<div class="col">
+									<img class="d-block w-100" style="width: 100%; height: 100%;"
+										th:src="${itemTopSale[7].getImg()}" alt="1 slide">
+									<div class="text-block">
+										<h3 th:text="${itemTopSale[7].getName()}"></h3>
+										<p th:text="'Sold: ' + ${itemTopSale[7].getAmount()}"></p>
 									</div>
-									<div class="col">
-										<img class="d-block w-100" style="width: 100%; height: 100%;"
-											th:src="${itemTopSale[8].getImg()}" alt="3 slide">
+								</div>
+								<div class="col">
+									<img class="d-block w-100" style="width: 100%; height: 100%;"
+										th:src="${itemTopSale[8].getImg()}" alt="1 slide">
+									<div class="text-block">
+										<h3 th:text="${itemTopSale[8].getName()}"></h3>
+										<p th:text="'Sold: ' + ${itemTopSale[8].getAmount()}"></p>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-
-					<!-- Left and right controls -->
-					<a class="carousel-control-prev" href="#carousel-top-sale"
-						data-slide="prev"> <span class="carousel-control-prev-icon"></span>
-					</a> <a class="carousel-control-next" href="#carousel-top-sale"
-						data-slide="next"> <span class="carousel-control-next-icon"></span>
-					</a>
-
 				</div>
+
+				<!-- Left and right controls -->
+				<a class="carousel-control-prev" href="#carousel-top-sale"
+					data-slide="prev"> <span class="carousel-control-prev-icon"></span>
+				</a> <a class="carousel-control-next" href="#carousel-top-sale"
+					data-slide="next"> <span class="carousel-control-next-icon"></span>
+				</a>
 			</div>
 		</div>
 
-		<div class="jumbotron jumbotron-fluid">
+		<div class="" style="margin-top: 20px;">
 			<div class="">
 				<h1>TOP HOT PRODUCT</h1>
 				<div class="card-deck">
@@ -353,15 +387,33 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div></div>
-
+		<div id="categoryViewer">
+			<br>
+		<br>
+		<br><br>
+		<br>
+		<br>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br><br>
+		<br><br>
+		<br><br>
+		<br><br>
+		<br><br>
+		<br><br>
+		<br><br>
+		<br>
 	</div>
 </body>
 <!-- jQuery library -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+	integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+	crossorigin="anonymous"></script>
 
 <!-- Popper JS -->
 <script
