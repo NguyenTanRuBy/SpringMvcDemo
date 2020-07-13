@@ -1,0 +1,22 @@
+.d-flex {
+	height: 40px;
+}
+
+.bg-gray {
+	background-color: rgba(220, 220, 220, 0.8);
+}
+
+.border-left {
+	border-style: none;
+	border-right: 2px solid gray;
+	height: 20px;
+}
+
+.navbar-nav {
+	padding: 30px;
+}
+
+.nav-item {
+	padding-left: 50px;
+}
+

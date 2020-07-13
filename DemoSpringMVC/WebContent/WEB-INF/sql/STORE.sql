@@ -87,6 +87,9 @@ UPDATE item set img = 'img/thanh_long.jpg' where id = 7;
 UPDATE item set img = 'img/nam_huong.jpg' where id = 8;
 UPDATE item set img = 'img/nam_rom.jpg' where id = 9;
 UPDATE item set img = 'img/nam_dai.jpg' where id = 10;
+UPDATE item set img = 'img/default_img.png' where id = 11;
+UPDATE item set img = 'img/default_img.png' where id = 12;
+UPDATE item set img = 'img/default_img.png' where id = 13;
 
 -- SELECT --------------
 SELECT * FROM CATEGORY ORDER BY ID;

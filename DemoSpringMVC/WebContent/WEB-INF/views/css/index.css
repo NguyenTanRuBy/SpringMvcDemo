@@ -1,11 +1,8 @@
-.container {
-	overflow: auto;
+.sticky {
+	position: fixed;
+	z-index: 1
 }
 
-.sticky {
-  position: fixed;
-  z-index: 1
-}
 .d-flex {
 	height: 40px;
 }
