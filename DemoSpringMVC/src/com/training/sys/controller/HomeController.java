@@ -1,13 +1,9 @@
 package com.training.sys.controller;
 
-import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.Nullable;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.training.model.Category;
 import com.training.model.Contact;
 import com.training.model.Item;
-import com.training.model.MyUserDetails;
 import com.training.sys.service.CategoryService;
 import com.training.sys.service.ItemService;
 

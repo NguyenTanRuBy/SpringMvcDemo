@@ -20,6 +20,11 @@ public class ItemController {
 	@Autowired
 	ItemService itemService;
 	
+	@RequestMapping(value = "")
+	public String itemPage() {
+		return "item";
+	}
+	
 	@RequestMapping(value = "/getAllItem", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Item> getAllItem() {
