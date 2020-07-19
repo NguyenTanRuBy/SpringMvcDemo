@@ -1,4 +1,4 @@
-﻿use store;
+use store;
 
 -- CREATE TABLE --------------
 CREATE TABLE `category` (
@@ -39,8 +39,8 @@ PRIMARY KEY (`id`, `user_name`)
 
 -- ALTER TABLE --------
 ALTER TABLE category_item ADD CONSTRAINT FK_CATEGORY_ID FOREIGN KEY(category_id) REFERENCES category(id);
-ALTER TABLE category_item ADD CONSTRAINT FK_ITEM_ID FOREIGN KEY(item_id) REFERENCES ITEM(id);
-ALTER TABLE top_sale ADD CONSTRAINT FK_TOP_SALE_ITEM_ID FOREIGN KEY(item_id) REFERENCES ITEM(id);
+ALTER TABLE category_item ADD CONSTRAINT FK_ITEM_ID FOREIGN KEY(item_id) REFERENCES item(id);
+ALTER TABLE top_sale ADD CONSTRAINT FK_TOP_SALE_ITEM_ID FOREIGN KEY(item_id) REFERENCES item(id);
 
 -- INSERT -------------
 INSERT INTO category(name) VALUES (N'RAU CỦ'), (N'TRÁI CÂY'), (N'NẤM'), (N'CÂY KIỂNG');
@@ -58,7 +58,7 @@ VALUES (N'CÀ CHUA', '20000', '10'),
 		(N'CẤY SỨ BONSAI', '200000', '10'),
 		(N'CÂY ỚT KIỂNG', '300000', '10'),
 		(N'CÂY TÙNG', '800000', '10');	
-INSERT INTO CATEGORY_ITEM (ITEM_ID, CATEGORY_ID)
+INSERT INTO category_item (ITEM_ID, CATEGORY_ID)
 VALUES (1,1), 
 		(2,1), 
         (3,1), 

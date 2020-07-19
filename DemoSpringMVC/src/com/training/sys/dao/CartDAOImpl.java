@@ -15,7 +15,7 @@ public class CartDAOImpl implements CartDAO {
 	@Override
 	public int addCart(Cart cart) {
 		// TODO Auto-generated method stub
-		sqlSession.insert("CartMapper.addToCart");
+		sqlSession.insert("CartMapper.addToCart", cart);
 		return 1;
 	}
 	

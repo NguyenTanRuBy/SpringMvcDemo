@@ -18,13 +18,13 @@ import com.training.sys.service.ItemService;
 
 @Controller
 public class HomeController {
-	
+
 	@Autowired
 	private CategoryService categoryService;
 
 	@Autowired
 	private ItemService itemService;
-	
+
 	@RequestMapping(value = "/")
 	public String index(Model model) {
 
@@ -32,36 +32,41 @@ public class HomeController {
 		List<Category> categories = categoryService.getAllCategory();
 		List<Item> items = itemService.selectAllItem();
 		List<Item> itemTopSale = itemService.getTopSale();
-		
+
 		model.addAttribute("items", items);
 		model.addAttribute("categories", categories);
 		model.addAttribute("contact", contact);
 		model.addAttribute("itemTopSale", itemTopSale);
 		return "index";
 	}
-	
+
 	@RequestMapping(value = "/login")
 	public String login() {
 		return "login";
 	}
-	
+
 	@RequestMapping(value = "/403")
 	public String accessDenied() {
 		return "403";
 	}
-	
+
 	@RequestMapping(value = "/item")
 	public String itemPage() {
 		return "item";
 	}
-	
+
+	@RequestMapping(value = "/cart")
+	public String cartPage() {
+		return "cart";
+	}
+
 	@RequestMapping(value = "/username", method = RequestMethod.GET)
-    @ResponseBody
-    public String currentUserName(Authentication authentication) {
-        if (authentication != null) {
-            return authentication.getName();
-        } else {
-            return "no username";
-        }
-    }
+	@ResponseBody
+	public String currentUserName(Authentication authentication) {
+		if (authentication != null) {
+			return authentication.getName();
+		} else {
+			return "no username";
+		}
+	}
 }

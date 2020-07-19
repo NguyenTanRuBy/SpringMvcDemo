@@ -11,20 +11,20 @@
 	<select id="getItemByCategory" parameterType="String"
 		resultType="com.training.model.Item">
 		SELECT IT.*
-		FROM ITEM IT JOIN CATEGORY_ITEM CT_IT ON IT.ID = CT_IT.ITEM_ID
-		JOIN CATEGORY CT ON CT.ID = CT_IT.CATEGORY_ID
+		FROM item IT JOIN category_item CT_IT ON IT.ID = CT_IT.ITEM_ID
+		JOIN category CT ON CT.ID = CT_IT.CATEGORY_ID
 		WHERE CT.NAME = #{NAME}
 	</select>
 	<select id="getItemById" parameterType="int"
 		resultType="com.training.model.Item">
 		SELECT *
-		FROM ITEM
+		FROM item
 		WHERE ID = #{ID}
 	</select>
 
 	<select id="getTopSale" resultType="com.training.model.ItemTopSale">
 	SELECT IT.*, TS.AMOUNT
-	FROM ITEM IT JOIN TOP_SALE TS
+	FROM item IT JOIN TOP_SALE TS
 	ON IT.ID = TS.ITEM_ID
 	ORDER BY IT.ID
 	LIMIT 9;

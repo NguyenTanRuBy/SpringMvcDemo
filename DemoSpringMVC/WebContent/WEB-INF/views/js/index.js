@@ -1,5 +1,8 @@
 var items = [];
 var itemByCategory = [];
+
+updateItemCartCount();
+
 function getAllItem() {
 	var self = this;
 	axios({
@@ -49,7 +52,7 @@ function categoryClick(button) {
 													+ self.itemByCategory[item].id
 													+ "' class='btn btn-success stretched-link'>Detail</a>\
 											</div>\
-										</div>")
+										</div>");
 						}
 
 			});
@@ -58,3 +61,22 @@ function categoryClick(button) {
 function topSaleImgClick(id) {
 	window.location.href = "/DemoSpringMVC/item?id=" + id;
 }
+
+function updateItemCartCount() {
+	var storage = JSON.parse(window.localStorage.getItem("cart"));
+	if(storage != null) {
+		$("#shoppingBagBadge").text(storage.length);	
+	}
+	else {
+		$("#shoppingBagBadge").text("0");
+	}
+}
+
+
+
+
+
+
+
+
+

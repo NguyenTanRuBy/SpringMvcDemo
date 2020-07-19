@@ -4,8 +4,8 @@
 
 <mapper namespace="CartMapper">
 	<insert id="addToCart" parameterType="com.training.model.Cart">
-	INSERT INTO CART (USER_NAME, ITEM_ID, AMOUNT)
-	VALUES (#{userName}, #{itemId}, #{amount})
+	INSERT INTO CART (user_name, item_id, amount, total_price)
+	VALUES (#{userName}, #{itemId}, #{amount}, #{totalPrice})
 	</insert>
 
 </mapper>

@@ -5,7 +5,7 @@
 <mapper namespace="CategoryMapper">
 	<select id="selectAllCategory" resultType="com.training.model.Category">
 		SELECT * 
-		FROM store.category
-		ORDER BY ID
+		FROM category
+		ORDER BY id
 	</select>
-</mapper>
+</mapper>	

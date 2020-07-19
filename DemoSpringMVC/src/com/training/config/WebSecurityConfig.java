@@ -43,9 +43,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// TODO Auto-generated method stub
+		http.csrf().disable();
 		http
 			.authorizeRequests()
-				.antMatchers("/login", "/item/*").permitAll()
+				.antMatchers("/login", "/item/*", "/cart/*").permitAll()
 				.antMatchers("/").hasAnyAuthority("MEMBER", "ADMIN")
 				.antMatchers("/admin").hasRole("ADMIN")
 				.and()
