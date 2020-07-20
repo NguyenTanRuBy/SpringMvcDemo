@@ -18,6 +18,11 @@ public class CategoryController {
 	@Autowired
 	CategoryService categoryService;
 	
+	@RequestMapping(value = "/searchByCategory")
+	public String searchByCategory() {
+		return "searchByCategory";
+	}
+	
 	@RequestMapping(value = "/getAllCategory", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Category> getAllCategory() {

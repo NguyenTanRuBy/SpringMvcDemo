@@ -4,24 +4,25 @@ const itemId = urlParams.get('id');
 
 var item = {};
 var cart = {
-	item : {},
-	amount : 1,
+	item: {},
+	amount: 1,
 	totalPrice: 0
 }
 
 var bigCart = [];
 
+$("#success-alert").hide();
+
 axios({
-	method : 'get',
-	url : '/DemoSpringMVC/item/getItemById',
-	params : {
-		id : itemId
+	method: 'get',
+	url: '/DemoSpringMVC/item/getItemById',
+	params: {
+		id: itemId
 	}
-}).then(function(res) {
+}).then(function (res) {
 	var self = this;
 
 	self.item = res.data;
-	console.log(self.item);
 
 	$("#cardTitle").text(self.item.name);
 	$("#cardImg").attr("src", self.item.img);
@@ -48,38 +49,30 @@ function buyItem() {
 				break;
 			} else {
 				if (i == (self.bigCart.length - 1)) {
-					self.cart.totalPrice = self.cart.item.price 
+					self.cart.totalPrice = self.cart.item.price
 					self.bigCart.push(self.cart);
 					break;
 				}
 			}
 		}
-	// for the firt item add to cart	
+		// for the firt item add to cart	
 	} else {
-		self.cart.totalPrice = self.cart.item.price 
+		self.cart.totalPrice = self.cart.item.price
 		self.bigCart.push(self.cart);
-		
+
 	}
 
-	
-	
 	window.localStorage.setItem("cart", JSON.stringify(self.bigCart));
-	console.log("---------cart on local--------------");
-	console.log(JSON.parse(window.localStorage.getItem("cart")));
-
 	updateItemCartCount();
-
-	console.log(self.item);
-	console.log(self.cart.item);
-	console.log(self.cart.amount);
-	console.log(self.bigCart)
-
+	$("#success-alert").fadeTo(1000, 500).slideUp(500, function () {
+		$("#success-alert").slideUp(500);
+	})
 };
 
 function updateItemCartCount() {
 	var storage = JSON.parse(window.localStorage.getItem("cart"));
-	if(storage != null) {
-		$("#shoppingBagBadge").text(storage.length);	
+	if (storage != null) {
+		$("#shoppingBagBadge").text(storage.length);
 	}
 	else {
 		$("#shoppingBagBadge").text("0");

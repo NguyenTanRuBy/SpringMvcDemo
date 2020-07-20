@@ -22,18 +22,19 @@ CREATE TABLE `category_item` (
 PRIMARY KEY (`category_id`, `item_id`)
 );
 
-CREATE TABLE `TOP_SALE` (
+CREATE TABLE `top_sale` (
 `id` INT(11) NOT NULL AUTO_INCREMENT,
 `item_id` INT(11) NOT NULL,
 `amount` INT DEFAULT 1,
 PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `CART` (
+CREATE TABLE `cart` (
 `id` INT(11) NOT NULL AUTO_INCREMENT,
 `user_name` NVARCHAR(50) NOT NULL,
 `item_id` INT(11) NOT NULL,
 `amount` INT DEFAULT 1,
+`total_price` double,
 PRIMARY KEY (`id`, `user_name`)
 );
 
@@ -41,7 +42,7 @@ PRIMARY KEY (`id`, `user_name`)
 ALTER TABLE category_item ADD CONSTRAINT FK_CATEGORY_ID FOREIGN KEY(category_id) REFERENCES category(id);
 ALTER TABLE category_item ADD CONSTRAINT FK_ITEM_ID FOREIGN KEY(item_id) REFERENCES item(id);
 ALTER TABLE top_sale ADD CONSTRAINT FK_TOP_SALE_ITEM_ID FOREIGN KEY(item_id) REFERENCES item(id);
-
+ALTER TABLE cart ADD CONSTRAINT FK_CART_ITEM_ID FOREIGN KEY(item_id) REFERENCES item(id);
 -- INSERT -------------
 INSERT INTO category(name) VALUES (N'RAU CỦ'), (N'TRÁI CÂY'), (N'NẤM'), (N'CÂY KIỂNG');
 INSERT INTO item(name, price, discount_percent) 
@@ -103,6 +104,7 @@ UPDATE item set img = 'img/default_img.png' where id = 13;
 SELECT * FROM CATEGORY ORDER BY ID;
 SELECT * FROM ITEM ORDER BY ID;
 SELECT * FROM CATEGORY_ITEM;
+SELECT * FROM CART;
 
 SELECT IT.ID, IT.NAME, IT.IMG, TS.AMOUNT
 	FROM ITEM IT JOIN TOP_SALE TS ON IT.ID = TS.ITEM_ID

@@ -23,10 +23,10 @@
 	</select>
 
 	<select id="getTopSale" resultType="com.training.model.ItemTopSale">
-	SELECT IT.*, TS.AMOUNT
-	FROM item IT JOIN TOP_SALE TS
-	ON IT.ID = TS.ITEM_ID
-	ORDER BY IT.ID
-	LIMIT 9;
+		SELECT IT.*, TS.AMOUNT
+		FROM item IT JOIN TOP_SALE TS
+		ON IT.ID = TS.ITEM_ID
+		ORDER BY IT.ID
+		LIMIT 9;
 	</select>
 </mapper>

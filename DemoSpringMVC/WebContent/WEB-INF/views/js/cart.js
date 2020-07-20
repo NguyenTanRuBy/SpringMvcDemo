@@ -12,10 +12,15 @@ var cartData = {
 }
 
 renderData();
+if (storage == null) {
+	// disable submit button
+	$("#btnSubmit").prop("disabled", true);
+}
 
 function renderData() {
+	$("#tableBody").empty();
+
 	if (storage == null) {
-		$("#tableBody").empty();
 		$("#tableBody").append("<tr>\
 					<td><img src='img/default_img.png' width=80px height=80px alt='img'></td>\
 					<td>not available</td>\
@@ -39,7 +44,6 @@ function renderData() {
 
 function submit() {
 	if (storage == null) {
-		// disable submit button
 
 	}
 	else {
@@ -64,10 +68,12 @@ function submit() {
 				});
 
 			}
-			
+
 			window.localStorage.removeItem("cart");
 			self.storage = null;
 			$("#submitModal").modal("hide");
+			// disable submit button
+			$("#btnSubmit").prop("disabled", true);
 			self.renderData();
 		});
 	}
