@@ -1,8 +1,9 @@
 /**
  * 
  */
-var storage = JSON.parse(window.localStorage.getItem("cart"));
+var storage;
 var message = "";
+var idConfirmDelete = 0;
 
 var cartData = {
 	userName: "",
@@ -12,22 +13,23 @@ var cartData = {
 }
 
 renderData();
-if (storage == null) {
-	// disable submit button
-	$("#btnSubmit").prop("disabled", true);
-}
 
 function renderData() {
-	$("#tableBody").empty();
+	this.storage = JSON.parse(window.localStorage.getItem("cart"));
 
-	if (storage == null) {
-		$("#tableBody").append("<tr>\
-					<td><img src='img/default_img.png' width=80px height=80px alt='img'></td>\
+	$("#tableBody").empty();
+	if (storage == null || storage.length == 0) {
+		$("#tableBody").append("\
+				<tr>\
+					<td><img src='img/default_img.png' width=100px height=100px alt='img'></td>\
+					<td>not available</td>\
 					<td>not available</td>\
 					<td>not available</td>\
 					<td>not available</td>\
 					<td>not available</td>\
 				</tr>")
+
+		$("#btnSubmit").prop("disabled", true);
 	}
 	else {
 		for (let item = 0; item < storage.length; item++) {
@@ -37,6 +39,10 @@ function renderData() {
 							<td>"+ storage[item].amount + "</td>\
 							<td>"+ storage[item].item.price + "</td>\
 							<td>" + storage[item].totalPrice + "</td>\
+							<td>\
+								<a><span class='material-icons' style='color: gold; cursor: pointer;' data-toggle='tooltip' title='Edit'>create</span></a>\
+								<a onclick='confirmDelete(" + storage[item].item.id + ")' data-toggle='tooltip' title='Delete'><span class='material-icons' style='color: red; cursor: pointer;'>delete</span></a>\
+							</td>\
 						</tr>")
 		}
 	}
@@ -79,6 +85,25 @@ function submit() {
 	}
 }
 
+function confirmDelete(id) {
+	$("#confirmDelete").modal("show");
+	this.idConfirmDelete = id;
+}
+
+function deleteItem() {
+	for (let index = 0; index < storage.length; index++) {
+		if (storage[index].item.id == this.idConfirmDelete) {
+			storage.splice(index, 1);
+			break;
+		}
+	}
+
+	$("#confirmDelete").modal("hide");
+
+	//window.localStorage.removeItem("cart");
+	window.localStorage.setItem("cart", JSON.stringify(storage));
+	renderData();
+}
 
 
 

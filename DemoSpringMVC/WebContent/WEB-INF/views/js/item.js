@@ -13,6 +13,8 @@ var bigCart = [];
 
 $("#success-alert").hide();
 
+updateItemCartCount();
+
 axios({
 	method: 'get',
 	url: '/DemoSpringMVC/item/getItemById',
@@ -28,8 +30,6 @@ axios({
 	$("#cardImg").attr("src", self.item.img);
 	$("#itemPrice").text("Price: " + self.item.price + " VND");
 });
-
-updateItemCartCount();
 
 function buyItem() {
 	var self = this;
@@ -55,7 +55,7 @@ function buyItem() {
 				}
 			}
 		}
-		// for the firt item add to cart	
+		// for the first item add to cart	
 	} else {
 		self.cart.totalPrice = self.cart.item.price
 		self.bigCart.push(self.cart);
@@ -63,8 +63,12 @@ function buyItem() {
 	}
 
 	window.localStorage.setItem("cart", JSON.stringify(self.bigCart));
+
 	updateItemCartCount();
-	$("#success-alert").fadeTo(1000, 500).slideUp(500, function () {
+
+	$("#success-alert").text("ADD " + countItemAmount(itemId));
+
+	$("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
 		$("#success-alert").slideUp(500);
 	})
 };
@@ -77,6 +81,16 @@ function updateItemCartCount() {
 	else {
 		$("#shoppingBagBadge").text("0");
 	}
+}
+
+function countItemAmount(id) {
+	var storage = JSON.parse(window.localStorage.getItem("cart"));
+	for (let index = 0; index < storage.length; index++) {
+		if (storage[index].item.id == id) {
+			return storage[index].amount;
+		}
+	}
+
 }
 
 

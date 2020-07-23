@@ -16,15 +16,16 @@
 		<table class="table table-striped" id="tableContent">
 			<thead class="thead-dark">
 				<tr>
-					<th>Ảnh</th>
-					<th>Tên</th>
-					<th>Số lượng</th>
-					<th>Đơn giá </th>
-					<th>Thành tiền</th>
+					<th>IMAGE</th>
+					<th>NAME</th>
+					<th>AMOUNT</th>
+					<th>PRICE</th>
+					<th>TOTAL PRICE</th>
+					<th>ACTION</th>
 				</tr>
 			</thead>
 			<tbody id="tableBody">
-				
+
 			</tbody>
 		</table>
 
@@ -54,7 +55,31 @@
 						<button type="button" class="btn btn-danger" data-dismiss="modal">Wait a sec</button>
 						<button type="button" class="btn btn-success" onclick="submit()">Sure</button>
 					</div>
+				</div>
+			</div>
+		</div>
 
+		<!-- The Confirm Delete Modal -->
+		<div class="modal" id="confirmDelete">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">Confirm Delete</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+
+					<!-- Modal body -->
+					<div class="modal-body" style="text-align: center;">
+						<h4>You want to delete this item ?</h4>
+					</div>
+
+					<!-- Modal footer -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Wait a sec</button>
+						<button type="button" class="btn btn-success" onclick="deleteItem()">Yes</button>
+					</div>
 				</div>
 			</div>
 		</div>
